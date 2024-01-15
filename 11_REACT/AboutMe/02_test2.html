@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이창주의 자기소개 페이지</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+  <div id="root"></div>
+  <script type="text/babel">
+    const Introduction = () => {
+      const style = {
+        backgroundColor: 'orange',
+        color: 'white',
+        cursor: 'pointer',
+        textAlign: 'center',
+        padding: 20
+      };
+
+      return (
+        <>
+          <h1 style={style}>안녕하세요, 이창주입니다.</h1>
+        </>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Introduction />);
+  </script>
+
+  <div id="root2"></div>
+  <script type="text/babel">
+    const UserInfo = () => {
+      const user = {
+        name: '이창주',
+        phone: '010-2323-2323',
+        age: 30,
+        status: 'active'
+      };
+
+      const userStyle = {
+        margin: '20px',
+        padding: '10px',
+        border: '1px solid #ddd',
+        borderRadius: '5px'
+      };
+
+      return (
+        <>
+          <div style={userStyle}>
+            <h2>개인 정보</h2>
+            <p><strong>이름:</strong> {user.name}</p>
+            <p><strong>전화번호:</strong> {user.phone}</p>
+            <p><strong>나이:</strong> {user.age}</p>
+            <p><strong>Status:</strong> {user.status}</p>
+          </div>
+        </>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root2')).render(<UserInfo />);
+  </script>
+
+  <div id="root3"></div>
+  <script type="text/babel">
+    const GitHubLink = () => {
+      const linkStyle = {
+        margin: '20px',
+        textAlign: 'center'
+      };
+
+      return (
+        <>
+          <div style={linkStyle}>
+            <h2>깃허브 페이지</h2>
+            <button onClick={() => window.location.href = "https://github.com/lcj626"}>바로가기</button>
+          </div>
+        </>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root3')).render(<GitHubLink />);
+  </script>
+
+</body>
+</html>
