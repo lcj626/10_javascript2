@@ -11,8 +11,6 @@ function Todo() {
   const [inputText, setInputText] = useState("");
   const [nextId, setNextId] = useState(4);
 
-  // const [checked, setChecked] = useState(false);
-
   const onChangeHandler = e => setInputText(e.target.value);
   const onClickHandler = () =>{
       const addTodo = todos.concat({
@@ -42,8 +40,7 @@ function Todo() {
       todo =>{
         return (
           <>
-            <li>
-              <button id={todo.id} onClick={()=> checkList(todo.id)}>완료</button>
+            <li key={todo.id} id={todo.id} onClick={() => checkList(todo.id)}>
               <span>{todo.name}</span>
               <button onClick={() => onRemove(todo.id)}>삭제</button>
             </li>

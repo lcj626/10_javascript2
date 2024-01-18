@@ -8,7 +8,7 @@ const Item = ({todo, setTodoList, todoList}) =>{
         textDecoration : check ? 'line-through' : "none"
     }
 
-    const changeBox = ()=>{
+    const changeBox = (e)=>{
         setCheck(!check);
     }
 
@@ -28,14 +28,33 @@ const Item = ({todo, setTodoList, todoList}) =>{
 
 
 //todoList를 화면에 출력하기 위한 컨테이너
-
 const Container = ({todoList, setTodoList}) =>{
 
-  return (
-      todoList.map((current, index)=>{
-         return <Item todo={current} key={index} setTodoList={setTodoList} todoList={todoList}/>
-      })
+  const [darkmode, setDarkmode] =useState(false)
+  const containerButtonStyle={
+    background: darkmode? 'black':'white',
+    color: darkmode? 'red':'black',
+    width: '500px',
+    border: '1px solid black',
+    height: '500px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    paddingLeft: '50px'
+  }
 
+  const changeColor = (e)=>{
+    setDarkmode(!darkmode);
+}
+  
+  
+  return (
+    <div style={containerButtonStyle} >
+      <button onClick={changeColor}>블랙모드</button>
+      {todoList.map((current, index)=>{
+         return <Item todo={current} key={index} setTodoList={setTodoList} todoList={todoList}/>
+      })}
+    </div>
   );
 }
 
@@ -53,7 +72,7 @@ const InputContainer = ({todoList, setTodo}) =>{
     return (
         <>
           <input type="text" value={input} onChange={changeInput}/>
-          <button onClick={console.log("dfdfdf")}>추가</button>
+          <button onClick={addList}>추가</button>
         </>
     )
 }
@@ -70,3 +89,6 @@ function App(){
     </div>
   );
 }
+
+
+export default App;
