@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './MyPage.css';
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -74,13 +75,13 @@ const ProfileInfo = () => {
       'CSS'
   ]
 
-
   const userStyle = {
     margin: '20px',
     padding: '10px',
     border: '1px solid',
     borderRadius: '5px'
   };
+
 
   return (
     <>
@@ -114,12 +115,19 @@ const ProfileInfo = () => {
 };
 
 const MyProject = () => {
+
+  const projectStyle={
+      display: 'flex',
+      alignItems: 'center',
+      border: '1px solid'
+  }
+
   return (
-    <article>
+    <article style={projectStyle}>
       <div>
         <img src="/토끼로고-1.jpg" alt="첫번째 프로젝트 이미지"/>
         <button type="button" onClick={() => window.location.href = 'https://github.com/yycBunnyRoom/SEMI_PROJECT-BUNNY_ROOM'}>
-          자세히 보기
+          프로젝트 보기
         </button>
       </div>
       <div>
