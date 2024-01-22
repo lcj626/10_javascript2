@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './MyPage.css';
+import './MyHobby.css';
+import './MyPageNav.css';
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -9,8 +11,8 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <button onClick={NavbarButton}>네비바</button>
+    <div className='nav'>
+      <button className="navbar-btn" onClick={NavbarButton}>네비바</button>
       {navbar ? (
         <nav>
           <ul>
@@ -28,6 +30,7 @@ const Navbar = () => {
 
 
 const Introduction = () => {
+  
   const headerStyle = {
     backgroundColor: 'orange',
     color: 'white',
@@ -49,24 +52,11 @@ const ProfileInfo = () => {
 
   const profile = {
     name: '이창주',
-    phone: '010-2323-2323',
     age: 32,
+    address: '서울시 동작구',
     status: 'active'
   };
 
-  const myCareer = [
-      '2004-평촌초등학교 졸업',
-      '2008-범계중학교 졸업',
-      '2011-평촌고등학교 졸업',
-      '2011-숭실대학교 경영학부 입학',
-      '2015-공군 병장 전역'
-    ];
-
-  const interest = {
-    hobby : '농구 시청',
-    favorite : '고양이',
-    dislike : '계란후라이',
-  }
 
   const skills = [
       'Java',
@@ -85,34 +75,64 @@ const ProfileInfo = () => {
 
   return (
     <>
-      <div style={userStyle}>
+      <div className="user-info">
         <h2>개인 정보</h2>
         <hr/>
         <p><strong>이름:</strong> {profile.name}</p>
-        <p><strong>전화번호:</strong> {profile.phone}</p>
         <p><strong>나이:</strong> {profile.age}</p>
+        <p><strong>사는 곳:</strong> {profile.address}</p>
         <p><strong>Status:</strong> {profile.status}</p>
-      </div>
-      <div style={userStyle}>
-        <h2>약력</h2>
-        <hr/>
-        {myCareer.map((career, index) => (<p key={index}>{career}</p>))}
-      </div>
-      <div style={userStyle}>
-        <h2>취미</h2>
-        <hr/>
-        <p><strong>취미:</strong> {interest.hobby}</p>
-        <p><strong>좋아하는 것:</strong> {interest.favorite}</p>
-        <p><strong>싫어하는 것:</strong> {interest.dislike}</p>
-      </div>
-      <div style={userStyle}>
-        <h2>스킬</h2>
-        <hr/>
-        {skills.map((skill, index) => (<p key={index}>{skill}</p>))}
       </div>
     </>
   );
 };
+
+
+const skills = [{
+    id: 0,
+    name: 'Java',
+    text: '어릴때부터 농구를 좋아해서 학창시절때부터 자주 하였고 특히 미국농구 NBA 보는 것을 매우 좋아합니다',
+    image: '/자바 아이콘.png'
+},{
+    id: 1,
+    name: 'Spring',
+    text: '옛날부터 영화 보는것을 좋아했고 지금도 웬만하면 일주일에 한번씩은 영화를 보러가려고 하는 편입니다. 옛날 고전영화를 많이 좋아합니다',
+    image: '/스프링 로고.png'
+},{
+    id: 2,
+    name: 'JavaScript',
+    text: '어릴때부터 슬램덩크, 드래곤볼 같은 만화들을 좋아했고 지금도 종종 만화방 들러서 만화를 즐겨 봅니다.',
+    image: '/자바 스크립트 로고.png'
+},{
+    id: 3,
+    name: 'React',
+    text: '어릴때부터 슬램덩크, 드래곤볼 같은 만화들을 좋아했고 지금도 종종 만화방 들러서 만화를 즐겨 봅니다.',
+    image: '/React 로고.png'
+},{
+    id: 4,
+    name: 'Html/CSS',
+    text: '어릴때부터 슬램덩크, 드래곤볼 같은 만화들을 좋아했고 지금도 종종 만화방 들러서 만화를 즐겨 봅니다.',
+    image: '/html css 로고.png'
+}];
+
+const ListSkills=()=>{
+  const listMySkill = skills.map(skills =>
+        <li key={skills.id}>
+            <img src={skills.image}></img>
+            <p>
+                <b>{skills.name} : </b>
+                {skills.text}
+            </p>
+        </li>
+    );
+    return(
+      <article>
+          <h1>나의 스킬</h1>
+          <ul>{listMySkill}</ul>
+      </article>
+    )
+
+}
 
 const MyProject = () => {
 
@@ -122,10 +142,24 @@ const MyProject = () => {
       border: '1px solid'
   }
 
+  const imageButton={
+      verticalAlign: 'baseline',
+      marginTop: '8px',
+      display: 'block'
+  }
+
+  const projectImgStyle={
+    borderRadius: '15px',
+    width: '452px',
+    height: '500px',
+    marginBottom: '55px'
+  }
+
   return (
     <article style={projectStyle}>
-      <div>
-        <img src="/토끼로고-1.jpg" alt="첫번째 프로젝트 이미지"/>
+      <div style={imageButton}>
+        <h1>나의 프로젝트</h1>
+        <img src="/토끼로고-1.jpg" alt="첫번째 프로젝트 이미지" style={projectImgStyle}/>
         <button type="button" onClick={() => window.location.href = 'https://github.com/yycBunnyRoom/SEMI_PROJECT-BUNNY_ROOM'}>
           프로젝트 보기
         </button>
@@ -145,8 +179,6 @@ const MyProject = () => {
   );
 };
 
-
-
 const GithubLink = () => {
   const buttonStyle = {
     textAlign: 'center'
@@ -154,7 +186,7 @@ const GithubLink = () => {
 
   return (
     <>
-      <div style={buttonStyle}>
+      <div className="github-link">
         <h2>깃허브 페이지</h2>
         <button onClick={() => window.location.href = "https://github.com/lcj626"}>바로가기</button>
       </div>
@@ -162,13 +194,15 @@ const GithubLink = () => {
   );
 };
 
+
 const MyPage = () => {
   return (
     <>
-      <Introduction />
-      <ProfileInfo />
-      <GithubLink />
-      <MyProject/>
+        <Introduction />
+        <ProfileInfo />
+        <ListSkills />
+        <MyProject />
+        <GithubLink />
     </>
   );
 };
