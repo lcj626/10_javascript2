@@ -4,11 +4,13 @@ import App from './App';
 import App2 from './App2';
 import AppTest from './AppTest';
 import MyPage from './MyPage/MyPage';
+import NavApp from './MakeNav/NavApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MyPage />
+    {/* <MyPage /> */}
+    <NavApp/>
   </React.StrictMode>
 );
 

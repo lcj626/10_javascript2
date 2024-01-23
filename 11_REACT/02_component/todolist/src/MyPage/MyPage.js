@@ -19,7 +19,7 @@ const Navbar = () => {
             <li>Lee Chang Joo</li>
             <li>내 프로필</li>
             <li>나란 누구인가</li>
-            <li><a href={'MyProject'}>내 프로젝트</a></li>
+            <li>내 프로젝트</li>
             <li>마무리</li>
           </ul>
         </nav>
@@ -126,7 +126,7 @@ const ListSkills=()=>{
         </li>
     );
     return(
-      <article>
+      <article className="skills">
           <h1>나의 스킬</h1>
           <ul>{listMySkill}</ul>
       </article>
@@ -138,8 +138,14 @@ const MyProject = () => {
 
   const projectStyle={
       display: 'flex',
+      justifyContent: 'space-between',
       alignItems: 'center',
-      border: '1px solid'
+      maxWidth: '50rem',
+      margin: '0 auto',
+      padding: '1.25rem',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '0.625rem',
+      boxShadow: '0 0 0.625rem rgba(0, 0, 0, 0.1)'
   }
 
   const imageButton={
