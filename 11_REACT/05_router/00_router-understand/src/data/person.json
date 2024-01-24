@@ -1,0 +1,32 @@
+[
+  {
+    "index":1,
+    "title":"학원에서-1",
+    "category":"일상",
+    "contents":"오늘은 학원에서 리액트 라우터를",
+    "detail": {
+        "description": "오늘은 학원에서 리액트 라우터를 배웠다 유용하게 쓰일 것 같다",
+        "image": "/images/12.PNG"
+    }
+  },
+  {
+    "index":2,
+    "title":"학원에서-2",
+    "category":"일상",
+    "contents":"오늘도 학원에서 ",
+    "detail": {
+        "description": "오늘도 학원에서 리액트 라우터를 배웠다",
+        "image": "/images/13.PNG"
+    }
+  },
+  {
+    "index":3,
+    "title":"리액트 라우터",
+    "category":"지식",
+    "contents":"리액트 라우터에 대해 배워보아요 ",
+    "detail": {
+        "description": "리액트 라우터에 대해 배워보아요. 리액트 라우터라는 것이 있는데요",
+        "image": "/images/14.PNG"
+    }
+  }
+]
