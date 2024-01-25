@@ -115,6 +115,7 @@ const skills = [{
     image: '/html css 로고.png'
 }];
 
+
 const ListSkills=()=>{
   const listMySkill = skills.map(skills =>
         <li key={skills.id}>
