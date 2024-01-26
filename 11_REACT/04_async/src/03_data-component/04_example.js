@@ -2,9 +2,9 @@ import { useState } from "react"
 
 
 const SearchDigimon = () =>{
-  const [digimon, setDigimon] = useState("");
-  const [digimonName, setDigimonName] = useState({});
-  const [digimonImg, setDigimonImg] = useState("");
+  const [digimon, setDigimon] = useState({});
+  const [digimonName, setDigimonName] = useState("");
+  const [digimonImg, setDigimonImg] = useState([]);
 
   const onChangeHandler = (e) =>{
       setDigimon(e.target.value);
@@ -12,13 +12,11 @@ const SearchDigimon = () =>{
 
   const onClickHandler = () =>{
       fetch(`https://digi-api.com/api/v1/digimon/${digimon}`)
-      .then(r => {
-        return  r.json();
-      })
-      .then(data => {
-        console.log(data);
-        setDigimonName(data);
-        setDigimonImg(data.iamges[0].href);
+      .then(r => r.json())
+      .then(result => {
+        console.log(result);
+        setDigimonName(result.name);
+        setDigimonImg(result.images[0].href);
       })
   }
 
@@ -30,7 +28,7 @@ const SearchDigimon = () =>{
           <input type="text" onChange={onChangeHandler}/>
           <button onClick={onClickHandler}>검색</button>
 
-          <h4>{`${digimonName.name}`}</h4>
+          <h4>{`${digimonName}`}</h4>
           <img src={digimonImg}/>
       </>
   )
