@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-const MenuItem = ({menu}) =>{
+const MenuItem = ({menu}) =>{ // 메뉴리스트에서 직접적으로 보여주는 항목을 설정한 함수
     return (
 
         <Link to={`/menu/${menu.id}`}>

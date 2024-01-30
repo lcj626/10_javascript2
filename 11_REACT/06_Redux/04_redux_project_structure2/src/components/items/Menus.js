@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
+import { callGetMenuAPI } from "../../api/MenuAPICalls";
 
 
-const Menus = ({id}) =>{
+const Menus = ({id}) =>{ // 메뉴 관련 정보들 가져오기 위해 만드는 곳
     const result = useSelector(state => state.menuReducer);
     const menu = result.menu;
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     useEffect(()=>{
         dispatch(callGetMenuAPI(id));

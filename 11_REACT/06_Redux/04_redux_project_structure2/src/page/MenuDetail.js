@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Menus from "./Menu";
+import { callDeleteMenuAPI } from "../api/MenuAPICalls";
 
 
 const MenuDetail = () =>{
@@ -33,7 +34,7 @@ const MenuDetail = () =>{
                     </>
                 }
             </h1>
-            <Menu id={id}/>
+            <Menus id={id}/>
         </div>
     );
 }

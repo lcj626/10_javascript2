@@ -11,7 +11,7 @@ const REGIST_MENU = "menu/REGIST_MENU";
 const MODIFY_MENU = "menu/MODIFY_MENU";
 const DELETE_MENU = "menu/DELETE_MENU";
 
-export const {menu :{getMenuList, getMenu, registMenu, modifyMenu, deleteMenu}} = createActions({
+export const {menu :{getMenulist, getMenu, registMenu, modifyMenu, deleteMenu}} = createActions({
     [GET_MENULIST] : (res) => ({menuList : res}),
     [GET_MENU] : (res) => ({menu : res}),
     [REGIST_MENU] : (res) => ({regist : res}),
@@ -22,7 +22,7 @@ export const {menu :{getMenuList, getMenu, registMenu, modifyMenu, deleteMenu}} 
 // 리듀서 함수
 const menuReducer = handleActions(
   {
-    [GET_MENULIST] : (state, {payload}) =>{
+    [GET_MENULIST] : (state, {payload}) =>{ // payload => 데이터를 담는다
         return payload;
     },
     [GET_MENU] : (state, {payload}) =>{

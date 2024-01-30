@@ -8,7 +8,7 @@ const Menus = () =>{
 
     return (
         <div>
-            <h1>메뉴 목록{(loginStatus) && <button onClick={() => navigate("/menu/regist")}></button>}</h1>
+            <h1>메뉴 목록{(loginStatus) && <button onClick={() => navigate("/menu/regist")}>메뉴 추가</button>}</h1>
             <MenuList/>
         </div>
         

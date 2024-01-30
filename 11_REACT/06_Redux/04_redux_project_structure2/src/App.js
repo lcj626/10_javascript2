@@ -4,6 +4,9 @@ import Menus from "./page/Menu";
 import Main from "./page/Main";
 import MenuDetail from "./page/MenuDetail";
 import MenuRegist from "./page/MenuRegist";
+import MenuModify from "./page/MenuModify";
+import Error from "./page/Error";
+import Login from "./page/Login";
 
 function App() {
   return (
@@ -15,8 +18,13 @@ function App() {
             <Route index element={<Menus/>}/>
             <Route path=":id" element={<MenuDetail/>}/>
             <Route path="regist" element={<MenuRegist/>}/>
+            <Route path="modify">
+              <Route path=":id" element={<MenuModify/>}/>
+            </Route>
           </Route>
+          <Route path="login" element={<Login/>}/>
         </Route>
+        <Route path="*" element={<Error/>}/>
       </Routes>
     </BrowserRouter>
   );
